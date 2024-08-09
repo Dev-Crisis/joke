@@ -24,18 +24,19 @@ export async function PATCH(request){
         }
     });
 
-    return NextResponse.json({message: "Task Created"}, {status: 204})
+    return NextResponse.json({message: "Task Updated"}, {status: 204})
 }
 
 export async function DELETE(request){
-    const {id} = request.params.id;
+    const {id} = await request.json();
+    console.log(id)
     await prisma.task.delete({
         where: {
             id: id,
         },
     });
 
-    return NextResponse.json({message: "Task Created"}, {status: 204})
+    return NextResponse.json({message: "Task Deleted"})
 }
 
 export async function GET(request){
