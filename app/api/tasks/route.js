@@ -1,5 +1,6 @@
 import prisma from "../../../utils/dev";
 import {NextResponse} from "next/server";
+import {sql} from "@vercel/postgres";
 
 export async function POST(request){
     const {content, isCompleted} = await request.json();
@@ -40,6 +41,6 @@ export async function DELETE(request){
 }
 
 export async function GET(request){
-    const res = await prisma.task.findMany();
-    return NextResponse.json(res, {status: 200})
+    const { rows } = await sql`SELECT * from TASK`;
+    return NextResponse.json(rows, {status: 200})
 }
