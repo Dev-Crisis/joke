@@ -4,6 +4,7 @@ export async function createTask(e, data, router) {
     const res = await fetch(`${baseUrl}/api/tasks`, {
         method: "POST",
         headers: {
+            'Cache-Control': 'no-store',
             "Content-Type": "application/json",
         },
         body: JSON.stringify(data)
@@ -20,6 +21,7 @@ export async function getTasks() {
     const res = await fetch(`${baseUrl}/api/tasks`, {
         method: "GET",
         headers: {
+            'Cache-Control': 'no-store',
             "Content-Type": "application/json",
         },
     })
@@ -35,6 +37,7 @@ export async function deleteTask(id) {
     const res = await fetch(`${baseUrl}/api/tasks/`, {
         method: "DELETE",
         headers: {
+            'Cache-Control': 'no-store',
             "Content-Type": "application/json",
         },
         body: JSON.stringify({id: id})
