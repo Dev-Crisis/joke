@@ -1,6 +1,5 @@
 export async function createTask(e, data, router) {
     e.preventDefault();
-    console.log(data)
     const res = await fetch("http://localhost:3000/api/tasks", {
         method: "POST",
         headers: {
