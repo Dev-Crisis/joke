@@ -1,6 +1,7 @@
+const baseUrl = "https://master--rand-joke.netlify.app";
 export async function createTask(e, data, router) {
     e.preventDefault();
-    const res = await fetch("http://localhost:3000/api/tasks", {
+    const res = await fetch(`${baseUrl}/api/tasks`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -16,7 +17,7 @@ export async function createTask(e, data, router) {
 }
 
 export async function getTasks() {
-    const res = await fetch("http://localhost:3000/api/tasks", {
+    const res = await fetch(`${baseUrl}/api/tasks`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -31,7 +32,7 @@ export async function getTasks() {
 }
 
 export async function deleteTask(id) {
-    const res = await fetch(`http://localhost:3000/api/tasks/`, {
+    const res = await fetch(`${baseUrl}/api/tasks/`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
