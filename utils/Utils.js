@@ -1,4 +1,5 @@
-const baseUrl = "https://master--rand-joke.netlify.app";
+// const baseUrl = "https://master--rand-joke.netlify.app";
+const baseUrl = "https://joke-sand.vercel.app/";
 export async function createTask(e, data, router) {
     e.preventDefault();
     const res = await fetch(`${baseUrl}/api/tasks`, {
